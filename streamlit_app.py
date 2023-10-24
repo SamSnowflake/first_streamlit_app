@@ -72,7 +72,7 @@ if streamlit.button ('Add a Fruit to the List'):
 
 import altair as alt
 
-chart_data = pd.DataFrame(np.random.randn(20, 3), columns=["a", "b", "c"])
+chart_data = pd.get_fruit_load_list(np.random.randn(20, 3), columns=["a", "b", "c"])
 
 c = (
    alt.Chart(chart_data)
