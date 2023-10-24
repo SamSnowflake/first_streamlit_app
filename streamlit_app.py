@@ -69,7 +69,24 @@ if streamlit.button ('Add a Fruit to the List'):
         my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])  
         back_from_function = insert_row_snowflake(add_my_fruit)
         streamlit.text(back_from_function)
-    
+
+import altair as alt
+
+chart_data = pd.DataFrame(np.random.randn(20, 3), columns=["a", "b", "c"])
+
+c = (
+   alt.Chart(chart_data)
+   .mark_circle()
+   .encode(x="a", y="b", size="c", color="c", tooltip=["a", "b", "c"])
+)
+
+st.altair_chart(c, use_container_width=True)
+
+
+
+
+
+
 #don't run anything past here while we troubleshoot
 streamlit.stop()
 
